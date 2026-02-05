@@ -58,7 +58,7 @@ Or run the command for training
 
 `./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --task DMP-Based-Cloth-Fling --num_envs 64 --max_iterations 16000 --headless --enable_cameras`
 
-To view videos of training, run the Singularity container, then
+To view videos of training, run the Singularity container in another terminal, then
 
 `cd /workspace/isaaclab/logs`
 
