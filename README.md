@@ -76,4 +76,4 @@ and visit localhost:6006 in your web browser.
 
 To resume training from an existing run:
 
-`./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --task DMP-Based-Particle-Randomized-Position --num_envs 4 --run RESUME_TEST --max_iterations 16000 --enable_cameras --resume --checkpoint model_15999.pt --load_run 2025-08-04_17-38-52_nonResidual_pos_lemoreCornerReward_disabledInitMotion --headless`
+`/isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/play.py --task DMP-Based-Particle-Randomized-Position --num_envs 4 --run TEST --enable_cameras --load_run trained_run --headless`
