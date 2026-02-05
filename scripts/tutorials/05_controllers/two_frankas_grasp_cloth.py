@@ -277,7 +277,7 @@ def run_simulator(sim: sim_utils.SimulationContext, scene: InteractiveScene):
             h, w, _ = img.shape
             fourcc = cv2.VideoWriter_fourcc(*"mp4v")
 
-            video_path = f"/workspace/logs/output/dual_arm_cloth_{video_idx:03d}.mp4"
+            video_path = f"/workspace/isaaclab/logs/output/dual_arm_cloth_{video_idx:03d}.mp4"
             print(f"[INFO] Recording {video_path}")
 
             video_writer = cv2.VideoWriter(video_path, fourcc, 30, (w, h))
