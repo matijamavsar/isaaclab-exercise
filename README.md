@@ -40,13 +40,17 @@ if on Windows, use
 
 To run the Singularity container with the code directory mounted, run
 
-`singularity exec -B tmpdir/docker-isaac-sim/cache/kit:/isaac-sim/kit/cache:rw -B tmpdir/docker-isaac-sim/documents:/isaac-sim/kit/data/documents:rw -B tmpdir/docker-isaac-sim/data:/isaac-sim/kit/data:rw -B outputs:/workspace/isaaclab/outputs:rw -B logs:/workspace/isaaclab/logs:rw -B isaaclab/source/isaaclab_tasks/isaaclab_tasks/direct:/workspace/isaaclab/source/isaaclab_tasks/isaaclab_tasks/direct -B isaaclab/source/isaaclab_tasks/isaaclab_tasks/sim:/workspace/isaaclab/source/isaaclab_tasks/isaaclab_tasks/sim -B isaaclab/scripts/tutorials:/workspace/isaaclab/scripts/tutorials:rw --nv --containall isaac-lab-base.sif/ bash`
+`singularity exec -B tmpdir/docker-isaac-sim/cache/kit:/isaac-sim/kit/cache:rw -B tmpdir/docker-isaac-sim/documents:/isaac-sim/kit/data/documents:rw -B tmpdir/docker-isaac-sim/data:/isaac-sim/kit/data:rw -B outputs:/workspace/isaaclab/outputs:rw -B isaaclab/logs:/workspace/isaaclab/logs:rw -B isaaclab/source/isaaclab_tasks/isaaclab_tasks/direct:/workspace/isaaclab/source/isaaclab_tasks/isaaclab_tasks/direct -B isaaclab/source/isaaclab_tasks/isaaclab_tasks/sim:/workspace/isaaclab/source/isaaclab_tasks/isaaclab_tasks/sim -B isaaclab/scripts/tutorials:/workspace/isaaclab/scripts/tutorials:rw --nv --containall isaac-lab-base.sif/ bash`
 
 Alternatively
 
 `singularity exec --nv --writable-tmpfs --env ACCEPT_EULA=Y --env PRIVACY_CONSENT=Y --env DISPLAY=$DISPLAY isaac-lab_2.3.0.sif bash`
 
-Inside the container go to
+Inside the container first run
+
+`export HTTPS_PROXY=http://www-proxy.ijs.si:8080`
+
+then
 
 `cd /workspace/isaaclab`
 
@@ -76,4 +80,4 @@ and visit localhost:6006 in your web browser.
 
 To resume training from an existing run:
 
-`/isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/play.py --task DMP-Based-Particle-Randomized-Position --num_envs 4 --run TEST --enable_cameras --load_run trained_run --headless`
+`./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/play.py --task DMP-Based-Particle-Randomized-Position --num_envs 4 --run TEST --enable_cameras --load_run trained_run --headless`
