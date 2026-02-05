@@ -5,11 +5,19 @@ To connect to the cluster, do
 When on cluster, first copy 'tmpdir' and Singularity image to your home directory
 
 `cp -r /ceph/grid/singularity-images/isaac-lab-base.sif .`
-`cp -r /ceph/grid/software/tmpdir .`
+
+Then create 'tmpdir'
+
+`mkdir -p tmpdir/docker-isaac-sim/cache/kit`
+
+`mkdir tmpdir/docker-isaac-sim/documents`
+
+`mkdir tmpdir/docker-isaac-sim/data`
 
 Clone the code to your local computer or cluster home directory and rename it to 'isaaclab'
 
 `git clone https://github.com/matijamavsar/isaaclab-exercise.git`
+
 `mv isaaclab-exercise isaaclab`
 
 You can either edit the code on your own computer and then copy it back to cluster or you can edit it via Visual Studio Code directly on the cluster (simpler).
