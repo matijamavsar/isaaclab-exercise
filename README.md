@@ -77,3 +77,10 @@ and visit localhost:6006 in your web browser.
 To resume training from an existing run:
 
 `./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/play.py --task DMP-Based-Particle-Randomized-Position --num_envs 4 --run TEST --enable_cameras --load_run trained_run --headless`
+
+Below you can lay your eyes upon images showing how to install Remote-SSH in VSCode and how to set outline settings.
+
+![Remote SSH](remote_ssh.png)
+
+![Outline](outline.png)
+
