@@ -46,7 +46,7 @@ from .dmp_integrator import BatchDMPIntegrator
 from .min_jerk_traj import generate_minimum_jerk
 
 """ Run this training using
-./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --task DMP-Based-Particle-Randomized-Position --num_envs 64 --max_iterations 16000 --headless --enable_cameras
+./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --task DMP-Based-Cloth-Fling --num_envs 64 --max_iterations 16000 --headless --enable_cameras
 """
 
 def butter2_biquad_coeffs(fc: float, dt: float, device=None, dtype=torch.float32):
