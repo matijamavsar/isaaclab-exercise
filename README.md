@@ -2,17 +2,13 @@ To connect to the cluster, do
 
 `ssh -L 6006:localhost:6006 -L 8080:localhost:8080 USER@nsc-login.ijs.si`
 
-When on cluster, first copy 'tmpdir' and Singularity image to your home directory
+When on cluster, first copy Singularity image to your home directory
 
 `cp -r /ceph/grid/singularity-images/isaac-lab-base.sif .`
 
 Then create 'tmpdir'
 
-`mkdir -p tmpdir/docker-isaac-sim/cache/kit`
-
-`mkdir tmpdir/docker-isaac-sim/documents`
-
-`mkdir tmpdir/docker-isaac-sim/data`
+`mkdir -p tmpdir/docker-isaac-sim/cache/kit && mkdir tmpdir/docker-isaac-sim/documents && mkdir tmpdir/docker-isaac-sim/data`
 
 Clone the code to your local computer or cluster home directory and rename it to 'isaaclab'
 
@@ -42,10 +38,6 @@ To run the Singularity container with the code directory mounted, run
 
 `singularity exec -B tmpdir/docker-isaac-sim/cache/kit:/isaac-sim/kit/cache:rw -B tmpdir/docker-isaac-sim/documents:/isaac-sim/kit/data/documents:rw -B tmpdir/docker-isaac-sim/data:/isaac-sim/kit/data:rw -B outputs:/workspace/isaaclab/outputs:rw -B isaaclab/logs:/workspace/isaaclab/logs:rw -B isaaclab/source/isaaclab_tasks/isaaclab_tasks/direct:/workspace/isaaclab/source/isaaclab_tasks/isaaclab_tasks/direct -B isaaclab/source/isaaclab_tasks/isaaclab_tasks/sim:/workspace/isaaclab/source/isaaclab_tasks/isaaclab_tasks/sim -B isaaclab/scripts/tutorials:/workspace/isaaclab/scripts/tutorials:rw --nv --containall isaac-lab-base.sif/ bash`
 
-Alternatively
-
-`singularity exec --nv --writable-tmpfs --env ACCEPT_EULA=Y --env PRIVACY_CONSENT=Y --env DISPLAY=$DISPLAY isaac-lab_2.3.0.sif bash`
-
 Inside the container first run
 
 `export HTTPS_PROXY=http://www-proxy.ijs.si:8080`
@@ -61,6 +53,10 @@ And then run the command for cloth grasp
 Or run the command for training
 
 `./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --task DMP-Based-Cloth-Fling --num_envs 64 --max_iterations 16000 --headless --enable_cameras`
+
+For easier debugging, you can write the following in your Python code at a desired line:
+
+`import ipdb; ipdb.set_trace()`
 
 To view videos of training, run the Singularity container in another terminal, then
 
