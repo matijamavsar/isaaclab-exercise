@@ -54,6 +54,12 @@ Or run the command for training
 
 `./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --task DMP-Based-Cloth-Fling --num_envs 64 --max_iterations 16000 --headless --enable_cameras`
 
+The files that you need to edit are in the following paths (you can open them using VSCode):
+
+`isaaclab/source/isaaclab_tasks/isaaclab_tasks/direct/franka_cloth_fling/dmp_based_cloth_fling_exercise.py`
+
+`isaaclab/scripts/tutorials/05_controllers/two_frankas_grasp_cloth_exercise.py`
+
 For easier debugging, you can write the following in your Python code at a desired line:
 
 `import ipdb; ipdb.set_trace()`
