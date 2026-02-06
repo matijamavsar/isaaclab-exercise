@@ -894,7 +894,7 @@ class FrankaDMPClothPlaceEnv(DirectRLEnv):
         self.z_abs_pos[self.action_steps] = current_absolute_pose[:, 2].clone()
 
         if self.cfg.enable_camera_recording:
-            in_window = (self.iteration_step % 20000) < 720
+            in_window = (self.iteration_step % 20000) < 720*2
             just_entered = (in_window and self.video_writer is None)
 
             if just_entered:
