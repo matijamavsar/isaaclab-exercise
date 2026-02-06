@@ -302,17 +302,18 @@ def run_simulator(sim: sim_utils.SimulationContext, scene: InteractiveScene):
             robot_2.reset()
 
             # --- compute handle targets in each robot root frame ---
-            # TODO: read robots' root states and handles' root states
+            # TODO: read robots' root states and handles' root states in world frame
 
             # TODO: calculate handle_2's position in robot_1's base frame
             # TODO: calculate handle_1's position in robot_2's base frame
+            # Hint: use subtract_frame_transforms(position1, quat1, position2, quat2)
 
             # --- IK commands (pose in root frame) ---
             cmd_1 = torch.zeros((scene.num_envs, 7), device=sim.device)
             cmd_2 = torch.zeros((scene.num_envs, 7), device=sim.device)
 
-            cmd_1[:, 0:3] = h2_pos_b1
-            cmd_2[:, 0:3] = h1_pos_b2
+            # cmd_1[:, 0:3] = h2_pos_b1 # handle_2 in robot_1's frame
+            # cmd_2[:, 0:3] = h1_pos_b2 # handle_1 in robot_2's frame
             cmd_1[:, 2] = 0.12
             cmd_2[:, 2] = 0.12
 
@@ -352,9 +353,9 @@ def run_simulator(sim: sim_utils.SimulationContext, scene: InteractiveScene):
             # TODO: compute end effector position and orientation in robot's base frame
             # Hint: use subtract_frame_transforms
 
-            joint_pos_des_1[:, 0:7] = ik_1.compute(
-                ee_pos_b_1, ee_quat_b_1, jac_b_1, joint_pos_1
-            )
+            # joint_pos_des_1[:, 0:7] = ik_1.compute(
+            #     ee_pos_b_1, ee_quat_b_1, jac_b_1, joint_pos_1
+            # )
 
             # ================= Robot 2 =================
             jac_w_2 = robot_2.root_physx_view.get_jacobians()[
@@ -369,9 +370,9 @@ def run_simulator(sim: sim_utils.SimulationContext, scene: InteractiveScene):
             # TODO: compute end effector position and orientation in robot's base frame
             # Hint: use subtract_frame_transforms
 
-            joint_pos_des_2[:, 0:7] = ik_2.compute(
-                ee_pos_b_2, ee_quat_b_2, jac_b_2, joint_pos_2
-            )
+            # joint_pos_des_2[:, 0:7] = ik_2.compute(
+            #     ee_pos_b_2, ee_quat_b_2, jac_b_2, joint_pos_2
+            # )
 
         # ------------------------------------------------------------
         # APPLY ACTIONS

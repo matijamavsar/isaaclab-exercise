@@ -772,8 +772,6 @@ class FrankaDMPClothPlaceEnv(DirectRLEnv):
                 Gf.Vec3f(0.0, 0.0, 0.356 + ((1 - random_scale[1]) * 0.356).item()))
             self.cloth_lengths[env_idx] = random_scale[1].item() * 0.7
             
-            # TODO: randomize also other parameters (drag, friction etc)
-
         if self.cfg.enable_camera_recording:
             self._camera = self.cfg.camera.class_type(self.cfg.camera)
 
