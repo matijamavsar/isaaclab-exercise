@@ -34,6 +34,10 @@ if on Windows, use
 
 `scp -r . USER@nsc-login.ijs.si:/ceph/grid/home/USER/isaaclab`
 
+To reserve a node on the cluster, run
+
+`salloc -N1 -n1 --gres=gpu:1 -c 16 --mem=32GB --time=2:00:00 --reservation=isaac`
+
 To run the Singularity container with the code directory mounted, run
 
 `singularity exec -B tmpdir/docker-isaac-sim/cache/kit:/isaac-sim/kit/cache:rw -B tmpdir/docker-isaac-sim/documents:/isaac-sim/kit/data/documents:rw -B tmpdir/docker-isaac-sim/data:/isaac-sim/kit/data:rw -B outputs:/workspace/isaaclab/outputs:rw -B isaaclab/logs:/workspace/isaaclab/logs:rw -B isaaclab/source/isaaclab_tasks/isaaclab_tasks/direct:/workspace/isaaclab/source/isaaclab_tasks/isaaclab_tasks/direct -B isaaclab/source/isaaclab_tasks/isaaclab_tasks/sim:/workspace/isaaclab/source/isaaclab_tasks/isaaclab_tasks/sim -B isaaclab/scripts/tutorials:/workspace/isaaclab/scripts/tutorials:rw --nv --containall isaac-lab-base.sif/ bash`
