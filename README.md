@@ -2,6 +2,8 @@ To connect to the cluster, do
 
 `ssh -L 6006:localhost:6006 -L 8080:localhost:8080 USER@nsc-login.ijs.si`
 
+You can also use Visual Studio Code's extension Remote-SSH and forward ports 8080 and 6006.
+
 When on cluster, first copy Singularity image to your home directory
 
 `cp -r /ceph/grid/singularity-images/isaac-lab-base.sif .`
@@ -18,6 +20,7 @@ Clone the code to your local computer or cluster home directory and rename it to
 
 You can either edit the code on your own computer and then copy it back to cluster or you can edit it via Visual Studio Code directly on the cluster (simpler).
 
+### Use this part only if you do not use VSCode
 You can copy the code from cluster to your computer using
 
 `rsync -r USER@nsc-login.ijs.si:/ceph/grid/home/USER/isaaclab_base /home/USER/isaaclab --progress`
@@ -34,9 +37,11 @@ if on Windows, use
 
 `scp -r . USER@nsc-login.ijs.si:/ceph/grid/home/USER/isaaclab`
 
+### Connecting to the cluster compute node
+
 To connect to a node on the cluster, run
 
-ssh nsc-vfp00X
+`ssh nsc-vfp00X`
 
 where X is 2, 3, or 4
 
@@ -66,10 +71,12 @@ The files that you need to edit are in the following paths (you can open them us
 
 `isaaclab/scripts/tutorials/05_controllers/two_frankas_grasp_cloth_exercise.py`
 
+### Debugging
 For easier debugging, you can write the following in your Python code at a desired line:
 
 `import ipdb; ipdb.set_trace()`
 
+### Video viewing
 To view videos of training, run the Singularity container in another terminal, then
 
 `cd /workspace/isaaclab/logs`
