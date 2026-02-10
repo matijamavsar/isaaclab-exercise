@@ -34,9 +34,11 @@ if on Windows, use
 
 `scp -r . USER@nsc-login.ijs.si:/ceph/grid/home/USER/isaaclab`
 
-To reserve a node on the cluster, run
+To connect to a node on the cluster, run
 
-`salloc -N1 -n1 --gres=gpu:1 -c 16 --mem=32GB --time=2:00:00 --reservation=isaac`
+ssh nsc-vfp00X
+
+where X is 2, 3, or 4
 
 To run the Singularity container with the code directory mounted, run
 
