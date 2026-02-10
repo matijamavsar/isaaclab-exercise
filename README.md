@@ -1,6 +1,6 @@
 To connect to the cluster, do
 
-`ssh -L 6006:localhost:6006 -L 8080:localhost:8080 USER@nsc-login.ijs.si`
+`ssh -L 6006:localhost:6006 -L 8080:localhost:8080 USER@nsc-login1.ijs.si`
 
 You can also use Visual Studio Code's extension Remote-SSH and forward ports 8080 and 6006.
 
@@ -8,9 +8,9 @@ When on cluster, first copy Singularity image to your home directory
 
 `cp -r /ceph/grid/singularity-images/isaac-lab-base.sif .`
 
-Then create 'tmpdir'
+Then create 'tmpdir' and 'outputs' directories:
 
-`mkdir -p tmpdir/docker-isaac-sim/cache/kit && mkdir tmpdir/docker-isaac-sim/documents && mkdir tmpdir/docker-isaac-sim/data`
+`mkdir -p tmpdir/docker-isaac-sim/cache/kit && mkdir tmpdir/docker-isaac-sim/documents && mkdir tmpdir/docker-isaac-sim/data && mkdir outputs`
 
 Clone the code to your local computer or cluster home directory and rename it to 'isaaclab'
 
