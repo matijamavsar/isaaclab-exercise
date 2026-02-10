@@ -76,6 +76,8 @@ For easier debugging, you can write the following in your Python code at a desir
 
 `import ipdb; ipdb.set_trace()`
 
+Hint: in the same folder as each script, there are also files of help that contain required code.
+
 ### Video viewing
 To view videos of training, run the Singularity container in another terminal, then
 
