@@ -67,9 +67,9 @@ Or run the command for training
 
 The files that you need to edit are in the following paths (you can open them using VSCode):
 
-`isaaclab/source/isaaclab_tasks/isaaclab_tasks/direct/franka_cloth_fling/dmp_based_cloth_fling_exercise.py`
-
 `isaaclab/scripts/tutorials/05_controllers/two_frankas_grasp_cloth_exercise.py`
+
+`isaaclab/source/isaaclab_tasks/isaaclab_tasks/direct/franka_cloth_fling/dmp_based_cloth_fling_exercise.py`
 
 ### Debugging
 For easier debugging, you can write the following in your Python code at a desired line:
@@ -87,13 +87,11 @@ and
 
 then visit localhost:8080 in your web browser.
 
-To view training results, from /workspace/isaaclab run
+### OR
 
-`tensorboard --logdir logs/rsl_rl --port 6006`
+open the entire remote home directory in VSCode and you can download videos from there.
 
-and visit localhost:6006 in your web browser.
-
-To resume training from an existing run:
+### To resume training from an existing run:
 
 `./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/play.py --task DMP-Based-Particle-Randomized-Position --num_envs 4 --run TEST --enable_cameras --load_run trained_run --headless`
 
