@@ -25,19 +25,19 @@ You can either edit the code on your own computer and then copy it back to clust
 ### Use this part only if you do not use VSCode
 You can copy the code from cluster to your computer using
 
-`rsync -r USER@nsc-login.ijs.si:/ceph/grid/home/USER/isaaclab_base /home/USER/isaaclab --progress`
+`rsync -r USER@nsc-login1.ijs.si:/ceph/grid/home/USER/isaaclab_base /home/USER/isaaclab --progress`
 
 if on Windows, use
 
-`scp -r USER@nsc-login.ijs.si:/ceph/grid/home/USER/isaaclab_base C:\Users\USER\Desktop`
+`scp -r USER@nsc-login1.ijs.si:/ceph/grid/home/USER/isaaclab_base C:\Users\USER\Desktop`
 
 To copy the code from local computer to the cluster, from the local isaaclab directory, run
 
-`rsync -rh  --exclude="*.git*" --filter=':- .dockerignore' . USER@nsc-login.ijs.si:/ceph/grid/home/USER/isaaclab --progress`
+`rsync -rh  --exclude="*.git*" --filter=':- .dockerignore' . USER@nsc-login1.ijs.si:/ceph/grid/home/USER/isaaclab --progress`
 
 if on Windows, use
 
-`scp -r . USER@nsc-login.ijs.si:/ceph/grid/home/USER/isaaclab`
+`scp -r . USER@nsc-login1.ijs.si:/ceph/grid/home/USER/isaaclab`
 
 ### Connecting to the cluster compute node
 
