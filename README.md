@@ -1,3 +1,5 @@
+If you have issues with the SSH key, go to `fido.sling.si` and login using your username and password "Romandic-Feb-2026". There you can add your public SSH key and click "Save" at the top left part of the screen.
+
 To connect to the cluster, do
 
 `ssh -L 6006:localhost:6006 -L 8080:localhost:8080 USER@nsc-login1.ijs.si`
