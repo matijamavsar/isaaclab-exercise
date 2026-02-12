@@ -303,6 +303,7 @@ def run_simulator(sim: sim_utils.SimulationContext, scene: InteractiveScene):
 
             # --- compute handle targets in each robot root frame ---
             # TODO: read robots' root states and handles' root states in world frame
+            # Hint: robot_1.data.root_pose_w gives you base pose in world frame and is of shape (1, 7)
 
             # TODO: calculate handle_2's position in robot_1's base frame
             # TODO: calculate handle_1's position in robot_2's base frame
